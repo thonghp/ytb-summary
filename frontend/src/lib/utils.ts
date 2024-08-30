@@ -46,14 +46,24 @@ export function flattenAttributes(data: any): any {
   return flattened;
 }
 
+/**
+ * 
+ * @returns Strapi URL
+ */
 export function getStrapiURL() {
   // chỉ định NEXT_PUBLIC thì nó sẽ có thể sử dụng ở client và server
   return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
 }
 
-export function getStrapiMedia(url: string | null) { 
+/**
+ * If the url is absolute or data url return url,
+ * otherwise if the url is relative, append base url strapi
+ * @param url url passed
+ * @returns url Strapi
+ */
+export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
-  if (url.startsWith("data:")) return url; 
+  if (url.startsWith("data:")) return url;
   if (url.startsWith("http") || url.startsWith("//")) return url;
   return `${getStrapiURL()}${url}`;
 }
