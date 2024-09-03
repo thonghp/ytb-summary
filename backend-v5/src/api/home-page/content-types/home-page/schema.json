@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "headers",
+  "collectionName": "home_pages",
   "info": {
-    "singularName": "header",
-    "pluralName": "headers",
-    "displayName": "Global",
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
     "description": ""
   },
   "options": {
@@ -17,6 +17,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "layout.hero-section"
+      ]
     }
   }
 }
