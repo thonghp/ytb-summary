@@ -4,6 +4,16 @@ import { unstable_noStore as noStore } from "next/cache";
 
 const baseUrl = getStrapiURL();
 
+export async function getGlobalMetadata() {
+  const url = new URL("/api/globals", baseUrl);
+
+  url.search = qs.stringify({
+    fields: ["title", "description"],
+  });
+
+  return await fetchData(url.href);
+}
+
 export async function getGlobalData() {
   /*
    * này là 1 function có sẵn của nextjs nó có nhiệm vụ xoá cache mỗi khi cập nhật cái mới
