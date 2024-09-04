@@ -32,7 +32,6 @@ function getIcon(name: string) {
     readonly data: FeatureSectionProps;
   }) {
     const { feature } = data;
-    console.dir(feature, { depth: null });
     return (
       <div className="">
         <div className="flex-1">
